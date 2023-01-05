@@ -18,11 +18,13 @@ class Tils extends StatelessWidget {
         padding: const EdgeInsets.only(left: 15, top: 20),
         child: Container(
           padding: const EdgeInsets.only(left: 10, right: 10, top: 5),
-          decoration: BoxDecoration(
-            color:
-                isSelected ? Color.fromARGB(255, 189, 187, 207) : Colors.black,
-            borderRadius: BorderRadius.circular(10),
-          ),
+          decoration: ShapeDecoration(
+              color: isSelected
+                  ? const Color.fromARGB(255, 189, 187, 207)
+                  : Colors.black,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  side: const BorderSide(width: 1, color: Colors.white))),
           child: Text(
             tils,
             style: const TextStyle(

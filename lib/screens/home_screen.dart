@@ -1,3 +1,4 @@
+import 'package:astro_app/screens/data.dart';
 import 'package:flutter/material.dart';
 
 import '../util/tils.dart';
@@ -10,9 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  void tilSelected(){
-
-  }
+  void tilSelected() {}
 
   @override
   Widget build(BuildContext context) {
@@ -45,41 +44,61 @@ class _HomeState extends State<Home> {
               Tils(
                 tils: "etoiles",
                 isSelected: false,
-                 onTap: tilSelected,
+                onTap: tilSelected,
               ),
               Tils(
                 tils: "glaxies",
                 isSelected: false,
-                 onTap: tilSelected,
+                onTap: tilSelected,
               ),
               Tils(
                 tils: "phénoménes",
                 isSelected: false,
-                 onTap: tilSelected,
+                onTap: tilSelected,
               ),
             ]),
           ),
-          Expanded(
-              child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  width: 200,
-                  color: Colors.grey,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  width: 200,
-                  color: Colors.grey,
-                ),
-              ),
-            ],
-          ))
+          Container(
+              margin: EdgeInsets.only(top: 20),
+              height: 300,
+              child: ListView.builder(
+                itemCount: planets.length,
+                itemBuilder: (context, index) =>
+                    ItemCard(planet: planets[index]),
+              ))
         ]),
+      ),
+    );
+  }
+}
+
+class ItemCard extends StatelessWidget {
+  final Planet planet;
+  // final Function press;
+  const ItemCard({
+    Key? key,
+    required this.planet,
+    // required this.press
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        leading: Container(
+            width: 110,
+            height: 110,
+            margin: EdgeInsets.all(0),
+            padding: EdgeInsets.all(0),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
+            child: Image.asset(planet.image)),
+        tileColor: Color(0x1F2038),
+        title: Text(
+          "${planet.title}",
+          style: const TextStyle(
+              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
+        subtitle: Text("${planet.description}"),
       ),
     );
   }
