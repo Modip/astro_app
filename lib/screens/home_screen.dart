@@ -1,4 +1,5 @@
 import 'package:astro_app/screens/data.dart';
+import 'package:astro_app/screens/detail.dart';
 import 'package:flutter/material.dart';
 
 import '../util/tils.dart';
@@ -21,6 +22,7 @@ class _HomeState extends State<Home> {
       home: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
+          toolbarHeight: 50,
           backgroundColor: Colors.black,
           title: const Text("Astro"),
           centerTitle: true,
@@ -29,20 +31,22 @@ class _HomeState extends State<Home> {
             IconButton(icon: const Icon(Icons.search), onPressed: () => {})
           ],
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-              side: const BorderSide(color: Colors.white)),
+            borderRadius: BorderRadius.circular(20),
+            side: const BorderSide(color: Colors.white),
+          ),
         ),
         body: Column(children: [
           Container(
             height: 50,
+            color: Colors.black,
             child: ListView(scrollDirection: Axis.horizontal, children: [
               Tils(
-                tils: "planete",
+                tils: "planéte",
                 isSelected: true,
                 onTap: tilSelected,
               ),
               Tils(
-                tils: "etoiles",
+                tils: "étoiles",
                 isSelected: false,
                 onTap: tilSelected,
               ),
@@ -59,13 +63,21 @@ class _HomeState extends State<Home> {
             ]),
           ),
           Container(
-              margin: EdgeInsets.only(top: 20),
-              height: 300,
-              child: ListView.builder(
-                itemCount: planets.length,
-                itemBuilder: (context, index) =>
-                    ItemCard(planet: planets[index]),
-              ))
+            margin: const EdgeInsets.only(top: 20),
+            height: 350,
+            child: ListView.builder(
+              itemCount: planets.length,
+              itemBuilder: (context, index) => ItemCard(
+                planet: planets[index],
+                press: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Detail(planet: planets[index]),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ]),
       ),
     );
@@ -74,31 +86,34 @@ class _HomeState extends State<Home> {
 
 class ItemCard extends StatelessWidget {
   final Planet planet;
-  // final Function press;
-  const ItemCard({
-    Key? key,
-    required this.planet,
-    // required this.press
-  }) : super(key: key);
+  final press;
+
+  const ItemCard({Key? key, required this.planet, this.press})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return GestureDetector(
+      onTap: press,
       child: ListTile(
         leading: Container(
-            width: 110,
-            height: 110,
-            margin: EdgeInsets.all(0),
-            padding: EdgeInsets.all(0),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
-            child: Image.asset(planet.image)),
-        tileColor: Color(0x1F2038),
+          width: 60,
+          height: 110,
+          margin: EdgeInsets.all(0),
+          padding: EdgeInsets.only(top: 10, bottom: 10),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+          child: Image.asset(planet.image),
+        ),
+        tileColor: Color.fromARGB(255, 28, 29, 58),
         title: Text(
           "${planet.title}",
           style: const TextStyle(
               fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        subtitle: Text("${planet.description}"),
+        subtitle: Text(
+          "${planet.description}",
+          style: TextStyle(fontSize: 12, color: Colors.white),
+        ),
       ),
     );
   }
