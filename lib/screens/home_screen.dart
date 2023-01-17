@@ -104,15 +104,15 @@ class ItemCard extends StatelessWidget {
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
           child: Image.asset(planet.image),
         ),
-        tileColor: Color.fromARGB(255, 28, 29, 58),
+        tileColor: const Color.fromARGB(255, 28, 29, 58),
         title: Text(
-          "${planet.title}",
+          planet.title,
           style: const TextStyle(
               fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         subtitle: Text(
-          "${planet.description}",
-          style: TextStyle(fontSize: 12, color: Colors.white),
+          "${planet.subtitle}",
+          style: const TextStyle(fontSize: 12, color: Colors.white),
         ),
       ),
     );
