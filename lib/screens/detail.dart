@@ -37,7 +37,7 @@ class Detail extends StatelessWidget {
               child: Container(
                 margin: const EdgeInsets.only(left: 30, right: 30, top: 0),
                 child: ListView(
-                  children: const [
+                  children:  [
                     SizedBox(
                       height: 20,
                     ),
@@ -51,8 +51,7 @@ class Detail extends StatelessWidget {
                     SizedBox(
                       height: 8,
                     ),
-                    Text(
-                      'Bali is famous for beaches,la terre la terre la terre  countless waves for surfing scuba diving, natiral sites to visit and explore tremely fascinating Hindus culture with colorfuls ceremonies and magnificent temples gifted artists the producing',
+                    Text(planet.description,
                       style: TextStyle(color: Colors.white, fontSize: 14),
                     )
                   ],

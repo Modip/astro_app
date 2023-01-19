@@ -1,4 +1,3 @@
-import 'package:astro_app/screens/detail.dart';
 import 'package:astro_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
       home: const Home(),
+      //home: const Test(),
     );
   }
 }

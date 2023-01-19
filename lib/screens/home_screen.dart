@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
             color: Colors.black,
             child: ListView(scrollDirection: Axis.horizontal, children: [
               Tils(
-                tils: "planéte",
+                tils: "planétes",
                 isSelected: true,
                 onTap: tilSelected,
               ),
@@ -64,8 +64,11 @@ class _HomeState extends State<Home> {
           ),
           Container(
             margin: const EdgeInsets.only(top: 20),
-            height: 350,
+            height: 600,
             child: ListView.builder(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+              ),
               itemCount: planets.length,
               itemBuilder: (context, index) => ItemCard(
                 planet: planets[index],
@@ -95,24 +98,54 @@ class ItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: press,
-      child: ListTile(
-        leading: Container(
-          width: 60,
-          height: 110,
-          margin: EdgeInsets.all(0),
-          padding: EdgeInsets.only(top: 10, bottom: 10),
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
-          child: Image.asset(planet.image),
-        ),
-        tileColor: const Color.fromARGB(255, 28, 29, 58),
-        title: Text(
-          planet.title,
-          style: const TextStyle(
-              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        subtitle: Text(
-          "${planet.subtitle}",
-          style: const TextStyle(fontSize: 12, color: Colors.white),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5),
+        child: Card(
+          elevation: 6,
+          shadowColor: Colors.grey,
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+          color: Color.fromARGB(255, 28, 29, 58),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(12))),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Image.asset(
+                  planet.image,
+                  width: 100,
+                  height: 90,
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      planet.title,
+                      style: const TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      planet.subtitle,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    const Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
