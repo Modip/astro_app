@@ -1,7 +1,6 @@
 import 'package:astro_app/screens/data.dart';
 import 'package:astro_app/screens/detail.dart';
 import 'package:flutter/material.dart';
-
 import '../util/tils.dart';
 
 class Home extends StatefulWidget {
@@ -35,53 +34,55 @@ class _HomeState extends State<Home> {
             side: const BorderSide(color: Colors.white),
           ),
         ),
-        body: Column(children: [
-          Container(
-            height: 50,
-            color: Colors.black,
-            child: ListView(scrollDirection: Axis.horizontal, children: [
-              Tils(
-                tils: "planétes",
-                isSelected: true,
-                onTap: tilSelected,
-              ),
-              Tils(
-                tils: "étoiles",
-                isSelected: false,
-                onTap: tilSelected,
-              ),
-              Tils(
-                tils: "glaxies",
-                isSelected: false,
-                onTap: tilSelected,
-              ),
-              Tils(
-                tils: "phénoménes",
-                isSelected: false,
-                onTap: tilSelected,
-              ),
-            ]),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 20),
-            height: 600,
-            child: ListView.builder(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-              ),
-              itemCount: planets.length,
-              itemBuilder: (context, index) => ItemCard(
-                planet: planets[index],
-                press: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Detail(planet: planets[index]),
+        body: SingleChildScrollView(
+          child: Column(children: [
+            Container(
+              height: 50,
+              color: Colors.black,
+              child: ListView(scrollDirection: Axis.horizontal, children: [
+                Tils(
+                  tils: "planétes",
+                  isSelected: true,
+                  onTap: tilSelected,
+                ),
+                Tils(
+                  tils: "étoiles",
+                  isSelected: false,
+                  onTap: tilSelected,
+                ),
+                Tils(
+                  tils: "glaxies",
+                  isSelected: false,
+                  onTap: tilSelected,
+                ),
+                Tils(
+                  tils: "phénoménes",
+                  isSelected: false,
+                  onTap: tilSelected,
+                ),
+              ]),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 10),
+              height: 600,
+              child: ListView.builder(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
+                itemCount: planets.length,
+                itemBuilder: (context, index) => ItemCard(
+                  planet: planets[index],
+                  press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Detail(planet: planets[index]),
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ]),
+          ]),
+        ),
       ),
     );
   }
@@ -102,19 +103,22 @@ class ItemCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: Card(
           elevation: 6,
-          shadowColor: Colors.grey,
+          shadowColor: const Color.fromARGB(255, 187, 189, 207),
           margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-          color: Color.fromARGB(255, 28, 29, 58),
+          color: const Color.fromARGB(255, 31, 32, 56),
           shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(12))),
+            borderRadius: BorderRadius.all(
+              Radius.circular(12),
+            ),
+          ),
           child: Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 5),
+                padding: const EdgeInsets.only(top: 0),
                 child: Image.asset(
                   planet.image,
                   width: 100,
-                  height: 90,
+                  height: 100,
                 ),
               ),
               Expanded(
@@ -122,23 +126,32 @@ class ItemCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      planet.title,
-                      style: const TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                    Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Text(
+                        planet.title,
+                        style: const TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
                     ),
                     const SizedBox(
-                      height: 5,
+                      height: 3,
                     ),
                     Text(
                       planet.subtitle,
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white, fontSize: 12),
                     ),
                     const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.white,
+                      child: Padding(
+                        padding: EdgeInsets.all(8),
+                        child: CircleAvatar(
+                          backgroundColor: Color.fromARGB(255, 187, 189, 207),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                          ),
+                        ),
                       ),
                     ),
                   ],

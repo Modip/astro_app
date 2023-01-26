@@ -11,8 +11,8 @@ class Detail extends StatelessWidget {
       backgroundColor: Color(0x1F2038),
       appBar: AppBar(
         elevation: 0,
-        toolbarHeight: 60,
-        backgroundColor: Colors.black,
+        toolbarHeight: 50,
+        backgroundColor: Color(0x1F2038),
         title: const Text("Astro"),
         centerTitle: true,
         shape: RoundedRectangleBorder(
@@ -23,10 +23,11 @@ class Detail extends StatelessWidget {
         children: [
           SafeArea(
             child: Container(
+              height: 240,
               margin: const EdgeInsets.only(
-                top: 210,
-                left: 10,
-                right: 10,
+                top: 175,
+                left: 12,
+                right: 12,
               ),
               decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 28, 29, 58),
@@ -35,24 +36,25 @@ class Detail extends StatelessWidget {
                     topRight: Radius.circular(20)),
               ),
               child: Container(
-                margin: const EdgeInsets.only(left: 30, right: 30, top: 0),
+                margin: const EdgeInsets.only(left: 10, right: 10, top: 0),
                 child: ListView(
-                  children:  [
-                    SizedBox(
-                      height: 20,
+                  children: [
+                    const SizedBox(
+                      height: 6,
                     ),
-                    Text(
+                    const Text(
                       'Description',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
-                      height: 8,
+                    const SizedBox(
+                      height: 5,
                     ),
-                    Text(planet.description,
-                      style: TextStyle(color: Colors.white, fontSize: 14),
+                    Text(
+                      planet.description,
+                      style: const TextStyle(color: Colors.white, fontSize: 13),
                     )
                   ],
                 ),
@@ -64,9 +66,9 @@ class Detail extends StatelessWidget {
               Stack(
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(top: 70),
-                    padding: const EdgeInsets.only(bottom: 10),
-                    height: 140,
+                    margin: const EdgeInsets.only(top: 35),
+                    padding: const EdgeInsets.only(bottom: 0),
+                    height: 135,
                     width: double.infinity,
                     decoration: const BoxDecoration(
                       color: Colors.black,
@@ -83,17 +85,22 @@ class Detail extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
                   Container(
-                    height: 180,
+                    height: 145,
+                    padding: const EdgeInsets.all(0),
                     decoration: const BoxDecoration(
                       color: Colors.black,
                     ),
                     child: Center(
-                      child: Image.asset(planet.image),
+                      child: Image.asset(
+                        planet.image,
+                        width: 145,
+                        height: 145,
+                      ),
                     ),
                   ),
                 ],
@@ -101,13 +108,14 @@ class Detail extends StatelessWidget {
             ]),
           ),
           Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                height: 60,
-                width: double.infinity,
-                color: Colors.blue,
-              )),
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              height: 50,
+              width: double.infinity,
+              color: const Color.fromARGB(255, 187, 189, 207),
+            ),
+          ),
         ],
       ),
     );
