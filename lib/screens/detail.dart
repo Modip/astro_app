@@ -8,11 +8,11 @@ class Detail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0x1F2038),
+      backgroundColor: const Color(0x1F2038),
       appBar: AppBar(
         elevation: 0,
         toolbarHeight: 50,
-        backgroundColor: Color(0x1F2038),
+        backgroundColor: const Color(0x1F2038),
         title: const Text("Astro"),
         centerTitle: true,
         shape: RoundedRectangleBorder(
