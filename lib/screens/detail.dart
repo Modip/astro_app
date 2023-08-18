@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'data.dart';
 
 class Detail extends StatelessWidget {
@@ -19,104 +20,88 @@ class Detail extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             side: const BorderSide(color: Colors.white)),
       ),
-      body: Stack(
-        children: [
-          SafeArea(
-            child: Container(
-              height: 240,
-              margin: const EdgeInsets.only(
-                top: 175,
-                left: 12,
-                right: 12,
+      body: SafeArea(
+        
+        child: ListView(
+          children: [
+            Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: Image.asset(
+                  planet.image,
+                  fit: BoxFit.cover,
+                ),
               ),
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 28, 29, 58),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20)),
+              const SizedBox(
+                height: 5,
               ),
-              child: Container(
-                margin: const EdgeInsets.only(left: 10, right: 10, top: 0),
-                child: ListView(
-                  children: [
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    const Text(
-                      'Description',
-                      style: TextStyle(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children:  [
+                  Padding(
+                    padding: EdgeInsets.all(3),
+                    child: Text(
+                      planet.title,
+                      style:const TextStyle(
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      planet.description,
-                      style: const TextStyle(color: Colors.white, fontSize: 13),
+                  )
+                ],
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 31, 32, 56),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15))),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(3),
+                      child:  Text(
+                        planet.description,
+                        style: const  TextStyle(
+                          color: Colors.white,
+                          fontSize: 13,
+                        ),
+                      ),
                     )
                   ],
                 ),
               ),
-            ),
-          ),
-          SafeArea(
-            child: ListView(children: [
-              Stack(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(top: 35),
-                    padding: const EdgeInsets.only(bottom: 0),
-                    height: 135,
-                    width: double.infinity,
-                    decoration: const BoxDecoration(
-                      color: Colors.black,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Center(
-                          child: Text(
-                            planet.title,
-                            style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    height: 145,
-                    padding: const EdgeInsets.all(0),
-                    decoration: const BoxDecoration(
-                      color: Colors.black,
-                    ),
-                    child: Center(
-                      child: Image.asset(
-                        planet.image,
-                        width: 145,
-                        height: 145,
-                      ),
-                    ),
-                  ),
-                ],
+              const SizedBox(
+                height: 10,
               ),
-            ]),
+              Container(
+                color: Colors.black,
+                child: Padding(
+                  padding: const EdgeInsets.all(5),
+                  child: RatingBar.builder(
+                      initialRating: 3.5,
+                      allowHalfRating: true,
+                      unratedColor: Colors.white,
+                      itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      itemBuilder: (context, index) {
+                        return const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        );
+                      },
+                      onRatingUpdate: (rating) {}),
+                ),
+              ),
+            ],
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              height: 50,
-              width: double.infinity,
-              color: const Color.fromARGB(255, 187, 189, 207),
-            ),
-          ),
-        ],
+        ),
+          ],
+        ),
+        
       ),
     );
   }

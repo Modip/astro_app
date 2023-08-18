@@ -131,7 +131,9 @@ class ItemCard extends StatelessWidget {
                       child: Text(
                         planet.title,
                         style: const TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -139,7 +141,7 @@ class ItemCard extends StatelessWidget {
                     ),
                     Text(
                       planet.subtitle,
-                      style: const TextStyle(color: Colors.white, fontSize: 12),
+                      style: const TextStyle(color: Colors.white, fontSize: 14),
                     ),
                     const Align(
                       alignment: Alignment.centerRight,

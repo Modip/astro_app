@@ -31,7 +31,7 @@ List<Planet> planets = [
   Planet(
     id: 3,
     title: "Terre",
-    subtitle: "Je suis la planéte bleu",
+    subtitle: "Je suis la planéte bleu et la seule habité",
     description:
         "La Terre est la troisième planète du Système solaire par ordre de distance croissante au Soleil, et la quatrième par taille et par masse croissantes. C'est la plus grande et la plus massive des quatre planètes telluriques, les trois autres étant Mercure, Vénus et Mars.\n \nLa Terre est parfois qualifiée de \"planète bleue\" : 71 % de sa surface est couverte par des océans d'eau salée qui constituent en partie l'hydrosphère. \nDe la glace ou des banquises recouvrent en partie les pôles.La Terre abrite des millions d'espèces vivantes dont les humains.",
     image: "assets/images/terre.png",
@@ -39,15 +39,14 @@ List<Planet> planets = [
   Planet(
       id: 4,
       title: "Mars",
-      subtitle:
-          "Je suis la planéte rouge, de taille intermédiaire entre celle de la Terre et de la Lune",
+      subtitle: "Je suis la planéte rouge, de taille intermédiaire ...",
       description:
           "De toutes les planètes, Mars est celle qui suscite le plus d'intérêt de la part des scientifiques mais aussi du grand public.\n\n D'une taille intermédiaire entre celle de la Terre et de la Lune, Mars présente des analogies avec ces 2 corps, à travers ses cratères et ses bassins d\'impact (comme sur la Lune), d\'une part, et avec ses volcans (Olympus Mons est le plus grand volcan du système solaire !), ses rifts, ses vallées et ses calottes polaires (comme sur la Terre) d'autre part.\nC'est aussi la seule autre planète (autre que la Terre !) où la vie aurait pu (ou a pu) se développer dans le passé, lorsque la pression atmosphérique, alors plus élevée, permettait à l'eau liquide de s'y écouler.",
       image: "assets/images/mars.png"),
   Planet(
       id: 5,
       title: "Jupiter",
-      subtitle: "Je suis la planéte rouge Je suis la planéte rouge",
+      subtitle: "Je suis la planéte rouge",
       description:
           "Jupiter est la plus grosse planète du Système solaire, plus volumineuse et massive que toutes les autres planètes réunies, et montrant un renflement équatorial important (le diamètre au niveau de l'équateur est 6 % plus important qu'aux pôles).\n\nComme sur les autres planètes gazeuses, des vents violents, de près de 600 km/h, parcourent les couches supérieures de la planète. La Grande Tache rouge, un anticyclone qui fait trois fois la taille de la Terre, est une zone de surpression qui est observée au moins depuis le XVIIe siècle.",
       image: "assets/images/jupiter.png"),
@@ -62,8 +61,7 @@ List<Planet> planets = [
   Planet(
     id: 7,
     title: "Uranus",
-    subtitle:
-        "Uranus est la septième planète du Système solaire par ordre d'éloignement du Soleil",
+    subtitle: "Uranus est la septième planète du Système solaire",
     description:
         "Gazeuse tout comme Jupiter et Saturne, Uranus diffère cependant par sa composition, c'est pourquoi on la qualifie, comme Neptune, de \"géante de glace\".Uranus présente une très forte inclinaison de son axe qui est quasiment parallèle au plan orbital. La planète « roule » pour ainsi dire sur son orbite.\n\n Comme les autres planètes gazeuses, Uranus présente des anneaux, certes moins développés que ceux de Saturne, qui résultent probablement de la collision et de la fragmentation d'anciennes lunes.",
     image: "assets/images/uranus.png",
@@ -71,7 +69,7 @@ List<Planet> planets = [
   Planet(
     id: 8,
     title: "Neptune",
-    subtitle: "Je suis la planéte rouge Je suis la planéte rouge",
+    subtitle: "Je suis la planéte rouge",
     description:
         "Planète la plus éloignée du soleil, Neptune n'a pas été découverte par observation mais grâce à des calculs mathématiques. Invisible à l'oeil nu, Neptune apparaît au télescope comme un disque bleu (couleur qu'elle doit au méthane dont elle est en partie constituée).\n\nBien qu'elle reçoive très peu d'énergie du soleil, son atmosphère, animée de vents violents, présente des formations météorologiques bien visibles (bandes, grandes taches sombres).",
     image: "assets/images/neptune.png",
