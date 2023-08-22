@@ -7,20 +7,20 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0x1F2038),
+      backgroundColor: const Color(0x001f2038),
       body: SafeArea(
           child: Center(
         child: Padding(
           padding: const EdgeInsets.all(14),
           child: Column(
             children: [
-              Spacer(),
+              const Spacer(),
               Image.asset('assets/images/imag1.jpg'),
               const SizedBox(
                 height: 40,
               ),
               const Text(
-                "Lever la tete \nle ciel vous parle",
+                "Lever la tete \nle ciel vous parle !",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -31,7 +31,7 @@ class Welcome extends StatelessWidget {
                 height: 20,
               ),
               const Text(
-                "On observe des planets des etoiles \nvoire memes des orores ",
+                "On observe des planets des étoiles \nvoire memes des orores ",
                 style: TextStyle(fontSize: 14, color: Colors.white),
                 textAlign: TextAlign.center,
               ),

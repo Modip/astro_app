@@ -21,87 +21,86 @@ class Detail extends StatelessWidget {
             side: const BorderSide(color: Colors.white)),
       ),
       body: SafeArea(
-        
         child: ListView(
           children: [
             Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(5),
-                child: Image.asset(
-                  planet.image,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children:  [
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: [
                   Padding(
-                    padding: EdgeInsets.all(3),
-                    child: Text(
-                      planet.title,
-                      style:const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                    padding: const EdgeInsets.all(5),
+                    child: Image.asset(
+                      planet.image,
+                      fit: BoxFit.cover,
                     ),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(3),
+                        child: Text(
+                          planet.title,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )
+                    ],
+                  ),
+                  Container(
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 31, 32, 56),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15))),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(3),
+                          child: Text(
+                            planet.description,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    color: Colors.black,
+                    child: Padding(
+                      padding: const EdgeInsets.all(5),
+                      child: RatingBar.builder(
+                          initialRating: 3.5,
+                          allowHalfRating: true,
+                          unratedColor: Colors.white,
+                          itemPadding:
+                              const EdgeInsets.symmetric(horizontal: 4.0),
+                          itemBuilder: (context, index) {
+                            return const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            );
+                          },
+                          onRatingUpdate: (rating) {}),
+                    ),
+                  ),
                 ],
               ),
-              Container(
-                decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 31, 32, 56),
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15))),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(3),
-                      child:  Text(
-                        planet.description,
-                        style: const  TextStyle(
-                          color: Colors.white,
-                          fontSize: 13,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                color: Colors.black,
-                child: Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: RatingBar.builder(
-                      initialRating: 3.5,
-                      allowHalfRating: true,
-                      unratedColor: Colors.white,
-                      itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      itemBuilder: (context, index) {
-                        return const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        );
-                      },
-                      onRatingUpdate: (rating) {}),
-                ),
-              ),
-            ],
-          ),
-        ),
+            ),
           ],
         ),
-        
       ),
     );
   }

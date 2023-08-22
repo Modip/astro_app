@@ -63,7 +63,7 @@ List<Planet> planets = [
     title: "Uranus",
     subtitle: "Uranus est la septième planète du Système solaire",
     description:
-        "Gazeuse tout comme Jupiter et Saturne, Uranus diffère cependant par sa composition, c'est pourquoi on la qualifie, comme Neptune, de \"géante de glace\".Uranus présente une très forte inclinaison de son axe qui est quasiment parallèle au plan orbital. La planète « roule » pour ainsi dire sur son orbite.\n\n Comme les autres planètes gazeuses, Uranus présente des anneaux, certes moins développés que ceux de Saturne, qui résultent probablement de la collision et de la fragmentation d'anciennes lunes.",
+        "Gazeuse tout comme Jupiter et Saturne, Uranus diffère cependant par sa composition, c'est pourquoi on la qualifie, comme Neptune, de \"géante de glace\".Uranus présente une très forte inclinaison de son axe qui est quasiment parallèle au plan orbital.\n\n Comme les autres planètes gazeuses, Uranus présente des anneaux, certes moins développés que ceux de Saturne, qui résultent probablement de la collision et de la fragmentation d'anciennes lunes.",
     image: "assets/images/uranus.png",
   ),
   Planet(
